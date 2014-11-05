@@ -1,0 +1,87 @@
+A arquitetura Ethernet é a mais usada em redes locais;
+Opera nas camadas Física e de Enlace do modelo OSI;
+-O Ethernet tem a função de receber os dados entregues pelos protocolos de alto nível e inse-
+ri-los dentro de quadros que serão enviados pelo meio físico.
+-Ele também define como isso será feito fisicamente. 
+
+1) A Ethernet é apresentada de muitos modos e formatos, podendo ter mais de uma topologia. Quais são elas?
+Topologia em estrela ou barramento. Ela pode rodar sobre cabo coaxial, par trançado ou fibra-óptica.
+
+2) Em sua versão original, uma Lan Ethernet tinha como principal característica o modo de trabalho promíscuo. Explique-o.A principal característica da Ethernet é o modo de trabalho promíscuo – cada quadro vai para todas as estaçoes, mas só aquela que tem um endereço igual ao endereço do destinatário aceita a mensagem. Esta característica é típica de sistemas em barramento.
+
+3) Por que se diz que a Ethernet define uma topologia passiva?
+A Ethernet define uma topologia passsiva, pois as estações não são responsáveis por mover os dados. O quadro segue pelo cabo até o terminador sem depender do auxílio
+das placas de rede das estações intermediárias.
+
+4) No endereçamento Ethernet, o que significa endereço globalmente único?
+É necessário para que o mecanismo de transferência de quadros funcione corretamente. Endereços globalmente únicos(exclusivos) para cada estação, o que é o caso da tecnologia
+Ethernet.
+
+5) Aponte as caracterísitcas do Endereçamento Ethernet.
+É feito através de endereços MAC. Esses endereços são globalmente únicos, com 48 bits cada
+(6bytes).
+Antes de sair da fábrica, o fabricante do hardware atribui um endereço físico a cada placa de
+rede. Esse endereço é programado em um chip na placa de rede. 
+
+6) Caso a placa de rede seja trocada, o endereço físico também mudaria? Sim ou Não.
+Como o endereço MAC está localizado na placa de rede, se a placa fosse trocada em um computador, o endereço físico da estação mudaria para o novo endereço MAC. Os endereços
+MAC são gravados usando-se números hexadecimais.
+
+7) Os nós de uma LAN Ethernet são interconectados por um canal broadcast, de modo que, quando um adaptador transmite um pacote, todos os adaptadores da LAN recebem o quadro.
+Qual o elemento que serve para arbitrar a comunicação nestas condições?
+Para arbitrar a comunicação nestas condições, a Ethernet usa um algoritmo de acesso múltiplo 
+chamado, protocolo CSMA/CD.
+
+8) Explique o método de contenção usado em topologia Barramento, usando como nó central
+Hub.
+-> Enquanto o meio está ocupado ninguém pode utilizá-lo;
+-> Isso só é válido para o Hub(topologia lógica em Barramento);
+
+9) Quais as três funções que o método CSMA/CD executa?
+1.  Transmitir e receber pacotes de dados
+2.  Decodificar pacotes de dados e verificar se os endereços são válidos, antes de passá-los às
+camadas superiores do modelo OSI
+3. Detectar erros dentro dos pacotes de dados ou na rede
+
+10) O protocolo CSMA/CD emprega quais regras básicas?
+-> Um adaptador pode começar a transmitir a qualquer tempo.
+-> Um adaptador nunca transmite um quadro quando percebe que algum outro adaptador está
+transmitindo, ou seja, ele usa detecção de portadora.
+-> Um adaptador que está transmitindo aborta sua transmissão logo que percebe que outro 
+adaptador também está transmitindo , ou seja, usa detecção de colisão
+-> Antes de tentar uma retransmissão, um adaptador espera um período de tempo aleatório que é caracteristicamente pequeno quando comparado a um tempo de quadro.
+
+11) Explique com suas palavras o fluxograma abaixo:
+Esse fluxograma resume o processo do Ethernet adaptado as regras implantadas com o Protocolo CSMA/CD e suas possíveis variações.
+
+12) No que consiste o processo de transmissão de um quadro?
+O processo de transmissão de um quadro basicamente compreende:
+-> a montagem do quadro e
+-> a aplicação do protocolo de acesso ao meio para determinar quando ele pode ser enviado
+no enlace.
+
+13) E o recebimento de um quadro por uma máquina?
+Quando uma máquina recebe um quadro através de sua placa de rede,
+o endereço do campo endereço de destino do quadro é analisado.
+Caso ele seja igual ao endereço da própria placa de rede ou ao endereço
+de broadcast, o quadro é recebido e processado pela máquina,
+caso contrário, é descartado.
+
+14) Como são as instalações Ethernet de hoje em dia?
+Na maioria das instalações de hoje, os nós são conectados a um
+comutador (switch) via segmento ponto a ponto feitos de cabos de
+pares trançados de fios de cobre ou cabos de fibra ótica.
+
+15) Como funciona o Controle de Fluxo?
+Utilizado em enlaces ponto a ponto;
+• Quando a estação receptora se torna congestionada, ela envia de
+volta um quadro chamado pause frame;
+• Esse quadro contém informações para que seja parado o envio de
+informações durante um intervalo de tempo específico;
+• A estação que estava enviando aguarda o tempo requisitado e então
+re-inicia a transmissão, ou a estação receptora envia um outro pacote
+com tempo de espera igual a zero (Time-to-Wait) e instruções para
+recomeçar o envio de informações.
+
+
+

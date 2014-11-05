@@ -1,0 +1,63 @@
+1) Dentro do contexto do material, sobre Camada de Enlace, qual a diferença entre essa camada e a Camada de Rede?	
+Diferentemente da camada de Rede que desempenha um papel global na arquitetura TCP/IP, a camada de Enlace tem um nível de responsabilidade apenas local.
+
+2)Como podemos definir um Protocolo de Comunicação?
+Podemos definir um protocolo de comunicação como um conjunto de regras que controlam a comunicação para que seja eficiente e sem erros. O protocolo nada mais é que um software agregado a interface de comunicação na rede, que recebe ou envia os dados a serem transmitidos, delimitando as mensagens transmitidas ,confirmando recebimentos, detectando e corrigindo erros, entre outros controles necessários a uma boa transmissão.
+
+3)Quais os Métodos de Acesso que temos em redes locais(LANs) e redes de longa distância(WANs)? Explique-os.
+Os métodos de acesso ponto a ponto são dedicados entre os dois dispositivos conectados. Ambos podem utilizar o canal a qualquer momento.
+
+Os métodos de acesso multiponto, o enlace(link) é compartilhado entre os pares de dispositivos que o utilizam. Referimos a este tipo de acesso como acesso múltiplo.
+
+4)Qual o protocolo de Acesso ao Meio muito utilizado em conexões discadas na Internet nos anos 80 e início dos 90? Quais problemas ele apresentava?
+
+SLIP - Serial Line Internet Protocol
+Implementado por Rick Adams em 1984 para conectar estações de trabalho SUN UNIX
+na Internet através de uma linha telefônica. Foi descrito na RFC 1055.
+
+Apresentava vários problemas:
+-Não detecta e/ou corrige erro;
+-Só transporta datagramas IP(Internet);
+-Não negocia endereçamento(cada lado precisa conhecer seu parceiro antecipadamente);
+-Não tem nenhum mecanismo de autenticação;
+-Existem várias versões incompatíveis do SLIP.
+
+É um protocolo mínimo que permite que equipamentos comuniquem-se via TCP/IP sobre
+a rede telefônica, possuindo diversas limitações, sendo citado aqui apenas para
+fins históricos.
+
+5)Aponte os serviços que o Protocolo PPP realiza?
+O PPP proporciona os seguintes serviços:
+
+1. O formato do frame a ser trocado entre dispositivos
+2. Como os dispositivos podem negociar o estabelecimento e a troca de dados no link.
+3. Como os dados da camada de rede são encapsulados em frames na camada de Enlace.
+4. De que forma dois dispositivos podem autenticar-se mutuamente.
+
+6) Uma conexão PPP passa por diferentes etapas as quais são ilustradas no diagrama de transição de estados da figura abaixo. EXPLIQUE COM SUAS PALAVRAS CADA UMA DELAS.
+Link Inativo: Linha fora de uso.
+Estabelecimento: Quando é solicitada a conexão e acontece a negociação entre as duas partes.
+Autenticação: É opcional, mas se tiver precisa ser concluída, do contrário, acontece a desconexão.
+Encapsulamento: É a conexão ativa, são encapsulados os pacotes de dados e informações de controle de usuário para a troca entre as duas extremidades.
+Desconexão: São trocados pacotes encerrando a negociação entre as extremidades.
+
+7) O PPP disponibiliza dois protocolos distintos para autenticação: o PAP e o CHAP. Explique-os.
+PAP - Password Authentication Protocol
+É um procedimento de autenticação simples que envolve apenas dois processos.
+1. O usuário que deseja acessar um sistema envia algum tipo de identificador(normalmente o nome de usuário) e uma senha.
+2. O sistema verifica a validade da identificação e a senha, rejeitando ou aceitando a conexão.
+
+8) CHAP - Challenge Handshake Authenticate Protocol - Neste método, a senha é mantida em segredo e nunca é enviada através da linha.
+1. O sistema envia ao usuário um pacote de requisição contendo o valor da requisição.
+2. O usuário aplica uma função pré-determinada que toma o valor da requisição e a própria senha para criar um resultado.
+3. O usuário faz a mesma operação, aplicando a mesma função a senha do usuário(conhecida pelo sistema) e ao valor da requisição para produzir o resultado.
+
+
+
+
+
+
+
+
+
+

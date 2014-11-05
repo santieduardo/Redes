@@ -1,0 +1,153 @@
+1) A camada de Enlace executa diversas funções, cite e explique cada uma delas.
+
+A camada de Enlace fornece uma interface de serviço bem definida para a camada de Rede.
+
+Tipos de Serviços: Sem conexão, sem confirmação; Sem conexão, com confirmação; Com conexão, com confirmação.
+
+Enquadramento: Determinar como os bits da camada Física serão agrupados em quadros(pacotes).
+
+Controle de Fluxo: Impedir que os receptores lentos sejam atropelados pelos mais rápidos.
+
+Detecção e Correção de Erros: Tratar os erros da transmissão;
+
+Acesso ao Enlace: Especifica as regras segundo as quais um quadro é transmitido pelo Enlace;
+
+Sentido da Transmissão: Com a transmissão full-duplex, os nós pode transmitir e receber simultaneamentem, já na half-duplex têm de ser transmitidos um por vez.
+
+2) Existem três tipos de Serviços na Camada de Enlace. Explique cada um deles e também dê exemplos de redes que os utiliza. 
+
+O principal serviço é a transferência de dados da camada de Rede da máquina A para a camada de Rede da máquina B.
+
+Sem conexão, sem confirmação:
+- Envio de dados independentes
+- Sem conexão lógica
+- Sem confirmação
+- Sem identificação e tratamento de erros
+- Redes locais com poucos erros
+- Ex: Vídeo-Conferência
+
+Sem conexão, com confirmação:
+- Sem conexão lógica
+- Com confirmação de recebimento
+- Se após um tempo não houver a confirmação, o receptor envia novamente
+- Conexões com razoável confiabilidade, como sem fio.
+
+Com conexão, com confirmação
+- Estabelece conexão lógica
+- Baixa confiabilidade, como em redes telefônicas.
+- Quadros são numerados e a entrega é garantida.
+- Garante a entrega na ordem correta.
+- Garante a não duplicidade.
+- Três fases no processo de transmissão.
+	- Estabelecimento de conexão;
+	- Transferência de Dados;
+	- Encerramento da conexão.
+
+3) Cite e explique as técnicas de Enquadramento de Dados.
+
+A geração de quadros pode ser:
+-> Por temporização de intervalos entre quadros, quando são inseridos intervalos de tempo entre um quadro e outro; não é confiável pois raramente as
+redes garantem a temporização do sistema, sendo possível alongamentos e diminuições do intervalo durante a transmissão.
+[FRAME] intervalo [FRAME] intervalo [FRAME]
+
+-> Por contagem de bytes, quando se usa um cabeçalho(header) no quadro indicando a quantidade de bytes no mesmo; apresenta um problema sério quando os contadores dos
+quadros são alterados por erros de transmissão.
+[header = qtd bytes][dados][trailer]
+
+-> Caracteres iniciais e finais com inserção de caracteres, quando se usa um ou mais bytes para marcar o início e o fim de um quadro, inserido-se bytes de escape quando a sequência de início ou/e fim aparece dentro dos dados transmitidos.
+[header = bytes][dados][trailer = bytes]
+	bytes de escape para quando a sequência aparecer dentro dos dados transmitidos.
+
+-> Flags inicias e finais com inserção de bits, quando se usa um padrão de bits para indicar o início e o fim de um quadro, inserindo-se bits de escape quando a sequência de início e/o fim aparece dentro dos dados transmitidos.
+[header = bits][dados][trailer = bits]
+	bits de escape para quando a sequência aparecer dentro dos dados transmitidos.
+
+4)  Uma situação importante na camada de Enlace é aquela em que um transmissor quer enviar quadros mais rapidamente do que o receptor é capaz de aceitá-los.
+Desta forma, qual a solução?
+ Regras que impedem que os quadros sejam enviados até que o receptor tenha concedido permissão para a transmissão, implícita ou explicitamente.
+ Sem controle de fluxo, o buffer do receptor pode transbordar e quadros podem ser perdidos.
+ Semelhante à camada de Transporte, um protocolo de camada de Enlace pode fornecer controle de fluxo para evitar que o nó remetente de um lado de um Enlace
+congestione o nó receptor do outro lado do Enlace.
+
+5) Um nó receptor receber ou entender um bit errado é possível devido a diversas causas. Cite-as.
+
+Um nó pode decidir incorretamente que um bit de um quadro é 0 quando foi transmitido como 1 e vice-versa. Esses erros de bits são introduzidos por atenuação de sinal e ruído eletromagnético. Como não há necessidade de repassar um datagrama que tem um erro, muitos protocolos de camada de Enlace oferecem um mecanismo para detectar a presença de um ou mais erros.
+   A ocorrência de erros em uma transmissão de dados, é motivada por diversas causas, como, por exemplo:
+   -> Ruído eletromagnético
+   -> Indução devido à proximidade da linha de dados a fios de alta tensão.
+   -> Falha na sincronização do receptor em relação ao transmissor.
+   -> Defeito nos componentes eletrônicos que implementam o transmissor/receptor.
+
+6) Como é feita a detecção de erros nesta camada?
+
+A detecção é feita obrigando o nó transmissor a enviar bits de detecção no quadro e obrigando o nó receptor a fazer a verificação de erros.
+
+7) E quanto a correção de erros, como é possível?  
+O receptor não somente detecta se foram introduzidas erros no quadro, mas também determina exatamente em que lugar do quadro os erros ocorreram, e então os corrige.
+
+8) Explique as vantagens e desvantagens dos erros em Rajadas ou Isoladamente.
+
+ Como resultado dos processos físicos que geram , os erros em alguns meios(como o rádio, por exemplo) tendem a acontecer com mais frequência em grandes volumes(rajadas), do que separadamente(isolados).
+  A vantagem é a concentração dos erros em poucos datagramas , ao invés de erros isolados atingindo diversos datagramas separadamente.
+  A desvantagem dos erros em Rajadas é que eles são mais difíceis de serem detectados e corrigidos do que os isolados.
+
+9) Abaixo estão listados alguns métodos de detecção de erros em comunicação de dados. Explique cada um deles:
+-> Ecoplexing
+Neste método, o receptor devolve o caractere recebido ao transmissor. O operador terminal compara visualmente o caractere pelo receptor com o caractere transmitido.
+-> Paridade de Caracteres
+ O equipamento transmissor calcula o bit de paridade para cada caracter transmitido. O receptor calcula um novo bit de paridade em cima dos bits recebidos e compara este bit com aquele enviado pelo transmissor.
+ Se forem iguais, a conexão é considerada correta; Senão, haverá necessidade de retransmitir o caracter.
+-> Paridade Combinada
+ A paridade combinada possibilita a formação de Bloco de Checagem do Caractere BCC, obtido de todos os bits formados pelo VRC e LRC.
+ Quando a mensagem chegar ao seu destino, o equipamento receptor calcula um novo BCC a partir do bits recebidos e compara-os com o BCC recebido ao final da mensagem. Ocorrendo a igual entre esses BCC's, a mensagem recebida será considerada correta, sendo aceita e processada.
+ Caso contrário, a mensagem será considera incorreta, pedindo-se assim uma retransmissão.
+-> CRC - Verificação de Redundância Cíclica
+ Códigos de CRC, também conhecidos como códigos polinomiais, possibilita considerar a cadeia de bits a ser enviada como um polinômio cujos coeficientes 
+são os valores 0 e 1 na cadeia de bits, sendo as operações na cadeia de bits interpretadas como aritmética polinomial.
+-> Soma de Verificação - Checksum
+Em técnicas de soma de verificação, os bits de dados são tratados como uma sequência de números inteiro de h bits. Um método simples de soma de verificação é somar esses inteiros h bits e usar o total resultante como bit de detecção de erros.
+
+10) Quais das técnicas de detecção de erros são usadas amplamente nas redes de computadores até hoje?
+  CRC - Verificação de Redundância Cícilica
+
+11) Na Paridade de Caracteres, caso ocorrá um erro duplo, é possível detectar e corrigir? Explique sua resposta
+ Caso haja um número par de bits com erro, a técnica não consegue detectar , pois a verificação de bits "1" s do caractere recebido permanecerá par ou ímpar.
+
+12) Na Paridade Combinada é possível detectar os tipos de erros apresentados 
+abaixo? Explique sua resposta.
+ Erro Simples:
+	Erro isolado é recuperável e pode ser corrigido.
+ Erro Duplo:
+	Não será possível corrigir os bits errados.
+ Erro Quadruplo
+	Não consegue detectar.
+
+
+13) Como funciona Verificação de Redundância Cíclica (CRC)?
+	Na transmissão, os dados de informação a serem transmitidos são transformados em um polinômio D(x), em função dos "0"s e "1"s. O polinômio D(x) é multiplicado pelo termo de maior grau de um polinômio gerador G(x).
+	O resultado desta multiplicação será um novo polinômio D'(x) que será dividido pelo polinômio gerador G(x).
+	O resto desta divisão R(x) será enviado ao término da transmissão de D(x).
+	Na recepção , os dados recebidos serão divididos pelo mesmo polinômio gerador G(x).
+	Se o resto desta divisão for igual a zero, significa que não houve erros na transmissão.
+
+	
+14) No método CRC, se o resto for diferente de zero o que acontece?
+	Significa que foi detectado erro na transmissão, sendo necessário a retransmissão da informação enviada anteriormente.
+
+
+15) Explique o funcionamento do Checksum.
+	A chamada soma de verificação da Internet é baseada nessa abordagem – bytes de dados são tratados como inteiros de 16 bits e somados. O complemento de 1 dessa soma então forma a soma de verificação da Internet que é carregada no cabeçalho do segmento. O receptor verifica a soma de verificação calculando os complementos de 1 da soma dos dados recebidos(inclusive a soma de verificação) e  verificando se o resultado contém somentes bits 1. Se qualquer um dos bits for 0, isso indicará um erro.
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
