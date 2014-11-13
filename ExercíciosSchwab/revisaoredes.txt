@@ -1,0 +1,93 @@
+enlace A
+
+questão 1, 5, 8 , 10 , 11, 14, 15
+
+funções da camada de enlace
+todas
+
+enlace = placa de rede
+
+técnica de detecção e correção de erros da camada de enlace
+CRC
+se o resto da divisao for zero  , não obteve erros
+
+
+Checksum = camada de transporte
+se o bit der 0 , significa erro
+funcionamento do checksum
+
+
+enlace B
+
+diferença entre camada de rede e camada de enlace
+local: dentro da mesma rede, de um nó para outro
+
+métodos de acesso ponto a ponto = uma máquina ligada na outra
+		multi ponto = todos os nós compartilham o mesmo canal
+
+promíscuo, passivo
+
+SLIP(discada) , PPP(adsl)
+
+PAP - CHAP
+Protocolos de autenticação
+
+
+enlace C
+
+Ethernet = Padrão para rede local
+Estrela ou Barramento
+
+Características = é atribuído em casa placa de rede endereçamento MAC(único)
+Trocando placa de rede é trocado endereço mac também
+Fabricante do modelo
+48 bits
+
+transmissão de pacotes
+aplicar protocolo de acesso
+
+protocolo CSMA/CD
+
+recebimento de pacotes = endereço de campo, de destino é analisado ...
+
+controle de fluxo é utilizado no enlace ponto a ponto: enlace é de um nó para outro
+pause frame ?
+questão 16
+
+slide rede
+
+1,2,3,4 
+11,12,13,14
+
+roteador = comutador
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
